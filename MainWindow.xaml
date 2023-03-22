@@ -6,11 +6,45 @@
         xmlns:local="clr-namespace:OmatkoboskaNotatnik"
         xmlns:viewmodels="clr-namespace:OmatkoboskaNotatnik.ViewModels"
         mc:Ignorable="d"
-        Title="Notatnik DJ" Height="500" Width="800">
+        Title="Notatnik DJ" Height="500" Width="800" Icon="/663314.png">
     <Window.DataContext>
         <viewmodels:MainViewModel/>
     </Window.DataContext>
-    <Grid>
+    <DockPanel Margin="1">
+        <Menu DockPanel.Dock="Top">
+            <Menu.Items>
+               <MenuItem Header="Plik" DataContext="{Binding File}">
+                <MenuItem Header="Nowy" Command="{Binding NewCommand}"/>
+                    <MenuItem Header="Otwórz" Command="{Binding OpenCommand}"/>
+                    <MenuItem Header="Zapisz" Command="{Binding SaveCommand}"/>
+                    <MenuItem Header="Zapisz jako" Command="{Binding SaveAsCommand}"/>
+               </MenuItem>
 
-    </Grid>
+                <MenuItem Header="Formatowanie" DataContext="{Binding Editor}">
+                    <MenuItem Header="Formatowanie" Command="{Binding FormatCommand}"/>
+                </MenuItem>
+
+               
+            </Menu.Items>
+       
+        </Menu>
+
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Bottom"
+                       DataContext="{Binding File.Dokument}"
+                       Text="{Binding FileSciezka}"/>
+            
+            <TextBox DockPanel.Dock="Top"
+                       VerticalScrollBarVisibility="Visible"
+                     DataContext="{Binding Editor}"
+                     FontFamily="{Binding Format.Family}"
+                     FontSize="{Binding Format.Size}"
+                     FontStyle="{Binding Format.Style}"
+                     FontWeight="{Binding Format.Weight}"
+                     TextWrapping="{Binding Format.Wrap}"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     Text="{Binding Dokument.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </DockPanel>
+    </DockPanel>
 </Window>
