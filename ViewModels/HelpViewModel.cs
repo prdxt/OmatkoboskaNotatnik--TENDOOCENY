@@ -12,7 +12,7 @@ namespace OmatkoboskaNotatnik.ViewModels
         public ICommand HelpCommand { get; }
         public HelpViewModel()
         {
-            HelpCommand = new RelayCommand(null);
+            HelpCommand = new RelayCommand(DisplayAbout);
         }
         private void DisplayAbout()
         {
