@@ -8,7 +8,7 @@
         xmlns:win="clr-namespace:System.Windows;assembly=PresentationCore"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Czcionka" Height="300" Width="300" Icon="/663314.png">
+        Title="Czcionka" Height="300" Width="300" Icon="/663314.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ObjectDataProvider x:Key="FontFamilyOptions"
                             ObjectType="{x:Type media:Fonts}"
