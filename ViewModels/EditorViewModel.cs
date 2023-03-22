@@ -16,14 +16,15 @@ namespace OmatkoboskaNotatnik.ViewModels
             Dokument = dokument;
             Format = new FormatModel();
             FormatCommand = new RelayCommand(OpenStyleDialog);
-            WrapCommand = new RelayCommand(ToggleWrap);
+            //WrapCommand = new RelayCommand(ToggleWrap);
             
         }
 
         private void OpenStyleDialog()
         {
-            //otwieramy tu wybór stylow 
-            throw new NotImplementedException();
+            var fontDialog = new FontOkno();
+            fontDialog.DataContext = Format;
+            fontDialog.ShowDialog();
         }
 
         private void ToggleWrap()
